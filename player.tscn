@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://rhnrm6r50drq"]
+
+[ext_resource type="Texture2D" uid="uid://c1jt75odb3vq4" path="res://sprites/super_serious_arrow.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://nu080760m01t" path="res://character_body_2d.gd" id="1_onrkg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrkg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 2.236068
+
+[node name="Node2D" type="Node2D" unique_id=1445493539]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=591006138]
+script = ExtResource("1_onrkg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D" unique_id=1522380701]
+polygon = PackedVector2Array(8, 6, 8, 8, 4, 8, 0, 4, -4, 8, -8, 8, -8, 6, -1, -7, 1, -7)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1007047301]
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=408178363]
+zoom = Vector2(5, 5)
+process_callback = 0
+limit_enabled = false
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=613354549]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=1576753229]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_yf5fn")
+debug_color = Color(0.6110733, 0.38237348, 0.9588434, 0.41960785)

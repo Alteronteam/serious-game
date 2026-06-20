@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://ckumppwg7p5rv"]
+
+[ext_resource type="Script" uid="uid://26fu0e8q5e2s" path="res://enemy.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://dcs8m0b1go6df" path="res://sprites/super_serious_enemy-Sheet.png" id="1_7k104"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3gngh"]
+radius = 68.65858
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gyqm"]
+atlas = ExtResource("1_7k104")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi2p4"]
+atlas = ExtResource("1_7k104")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iifgy"]
+atlas = ExtResource("1_7k104")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gyqm")
+}],
+"loop": 1,
+"name": &"dark",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi2p4")
+}],
+"loop": 1,
+"name": &"light",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iifgy")
+}],
+"loop": 1,
+"name": &"medium",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0u6y"]
+radius = 1.4142135
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1258576642]
+script = ExtResource("1_4gyqm")
+
+[node name="damage" type="Area2D" parent="." unique_id=739344828]
+position = Vector2(0, -1)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage" unique_id=114465017]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_g4v7s")
+debug_color = Color(0.69200575, 0.28657278, 1, 0.41960785)
+
+[node name="Area2D" type="Area2D" parent="damage" unique_id=961953257]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage/Area2D" unique_id=2089257934]
+shape = SubResource("CircleShape2D_3gngh")
+debug_color = Color(0.99999994, 0.7026519, 0.431622, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=102419961]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"dark"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1665043040]
+shape = SubResource("CircleShape2D_d0u6y")
