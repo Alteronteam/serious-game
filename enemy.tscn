@@ -65,14 +65,11 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d0u6y"]
-radius = 0.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gngh"]
 radius = 84.14868
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
-radius = 7.071068
+radius = 5.0
 
 [node name="shield_enemy" type="CharacterBody2D" unique_id=1258576642]
 script = ExtResource("1_4gyqm")
@@ -94,16 +91,16 @@ color = Color(0.45882353, 0.14117648, 0.21960784, 1)
 
 [node name="animations" type="AnimatedSprite2D" parent="." unique_id=102419961]
 unique_name_in_owner = true
-position = Vector2(0, -1)
+position = Vector2(1, 0)
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.8644158
+frame_progress = 0.53147405
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1665043040]
-visible = false
-shape = SubResource("CircleShape2D_d0u6y")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=622668417]
+position = Vector2(0, 1)
+polygon = PackedVector2Array(-2, -10, -2, -7, 2, -5, 2, 3, -3, 4, -3, 7, -1, 7, 5, 3, 5, -5, 1, -10)
 
 [node name="rush" type="Timer" parent="." unique_id=415114132]
 wait_time = 5.0
@@ -118,12 +115,12 @@ collision_mask = 2
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage/detection" unique_id=2089257934]
-position = Vector2(0, 1)
+position = Vector2(2, 1)
 shape = SubResource("CircleShape2D_3gngh")
 debug_color = Color(1, 0.7019608, 0.43137255, 0.011764706)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="damage" unique_id=666985385]
-position = Vector2(-1, 0)
+position = Vector2(1, 1)
 polygon = PackedVector2Array(1, -8, 3, -1, 1, 7, 8, 9, 5, 4, 5, 2, 9, -1, 5, -3, 5, -5, 8, -10)
 
 [node name="takes_damage" type="Area2D" parent="." unique_id=257702098]
@@ -131,7 +128,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="takes_damage" unique_id=773570888]
-position = Vector2(-5, -1)
+position = Vector2(-4, -1)
 shape = SubResource("CircleShape2D_yf5fn")
 
 [node name="death" type="Timer" parent="." unique_id=621534895]

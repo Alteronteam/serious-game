@@ -43,3 +43,6 @@ position = Vector2(0, 27)
 
 [node name="Node2D2" parent="." unique_id=1586981318 instance=ExtResource("3_tlwt5")]
 position = Vector2(-25, 13)
+
+[node name="shield_enemy" parent="." unique_id=1258576642 instance=ExtResource("3_tlwt5")]
+position = Vector2(149, 102)

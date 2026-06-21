@@ -37,12 +37,16 @@ func _on_rush_timeout() -> void:
 
 func _on_damage_body_entered(body: Node2D) -> void:
 	player_hp -= 1
+	print(player_hp)
 	print("alguma porra")
 
 #death handler
 func _on_takes_damage_area_entered(area: Area2D) -> void:
-	$CPUParticles2D.emitting = true
-	%animations.hide()
-	$death.start()
+	if str(area) == "Area2D:<Area2D#38872811070>":
+		print('dies')
+		$CPUParticles2D.emitting = true
+		%animations.hide()
+		$CollisionPolygon2D.hide()
+		$death.start()
 func _on_death_timeout() -> void:
 	queue_free()

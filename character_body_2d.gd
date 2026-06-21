@@ -15,7 +15,8 @@ func _physics_process(delta: float) -> void:
 		Global.speed=1
 		position += transform.y * SPEED * delta*-1* Global.speed
 	if Input.is_action_just_released("mouse_left"):
-		print(self.get_rotation() )
+		#print(self.get_rotation() )
+		pass
 	
 
 	
