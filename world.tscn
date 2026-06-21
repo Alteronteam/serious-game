@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cga0ne51jhppd" path="res://sprites/super_serious_tilemap-Sheet.png" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://rhnrm6r50drq" path="res://player.tscn" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://ckumppwg7p5rv" path="res://enemy.tscn" id="3_tlwt5"]
+[ext_resource type="Texture2D" uid="uid://kuhw10ucj7vs" path="res://sprites/super_serious_health_bar-Sheet-Sheet.png" id="4_aqk2v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlwt5"]
 texture = ExtResource("1_f3sb7")
@@ -28,6 +29,21 @@ texture = ExtResource("1_f3sb7")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_fj7yv")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_036b0"]
+atlas = ExtResource("4_aqk2v")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_036b0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Node2D" type="Node2D" unique_id=1021873986]
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1091250147]
@@ -49,3 +65,9 @@ position = Vector2(-91, 111)
 
 [node name="shield_enemy2" parent="." unique_id=2041822469 instance=ExtResource("3_tlwt5")]
 position = Vector2(-198, -106)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1522975324]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=447616371]
+position = Vector2(-91, -30)
+sprite_frames = SubResource("SpriteFrames_g4v7s")

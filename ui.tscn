@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dvi8hur2bb7gr"]
+
+[ext_resource type="Texture2D" uid="uid://kuhw10ucj7vs" path="res://sprites/super_serious_health_bar-Sheet-Sheet.png" id="1_fyqef"]
+[ext_resource type="Script" uid="uid://dxhmqoh07q8p8" path="res://ui.gd" id="1_m6e0p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m6e0p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Control" type="Control" unique_id=1478246044]
+layout_mode = 3
+anchor_right = 0.22200002
+anchor_bottom = 0.24100001
+offset_right = 0.25598145
+offset_bottom = -0.16801453
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m6e0p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=109050920]
+position = Vector2(24, 8)
+sprite_frames = SubResource("SpriteFrames_m6e0p")

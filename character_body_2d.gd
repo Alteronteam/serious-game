@@ -9,7 +9,7 @@ var current_direction = rotation
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("mouse_left"):
 		rotation+=0.1
-		Global.speed=0.2
+		Global.speed=0.1
 		
 	else: 
 		Global.speed=1
