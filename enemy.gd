@@ -12,11 +12,11 @@ func _physics_process(delta: float) -> void:
 		global_position = global_position.move_toward(locate.global_position, velocidade * delta)
 		
 	if timer ==  true:
-		velocidade = 150
+		velocidade = 150* Global.speed
 		look_at(locate.global_position)
 		%animations.play('activated')
 	else:
-		velocidade = 50
+		velocidade = 50*Global.speed
 		%animations.play("idle")
 func _on_detection_body_entered(body) -> void:
 	player = body
@@ -42,11 +42,13 @@ func _on_damage_body_entered(body: Node2D) -> void:
 
 #death handler
 func _on_takes_damage_area_entered(area: Area2D) -> void:
-	if str(area) == "Area2D:<Area2D#38872811070>":
+	print(area)
+	if "damage_dealer" in str(area):
 		print('dies')
 		$CPUParticles2D.emitting = true
 		%animations.hide()
 		$CollisionPolygon2D.hide()
+		
 		$death.start()
 func _on_death_timeout() -> void:
 	queue_free()

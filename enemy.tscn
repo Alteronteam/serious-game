@@ -74,21 +74,6 @@ radius = 5.0
 [node name="shield_enemy" type="CharacterBody2D" unique_id=1258576642]
 script = ExtResource("1_4gyqm")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=393247845]
-emitting = false
-amount = 520
-lifetime = 1.82
-one_shot = true
-explosiveness = 0.97
-randomness = 1.0
-lifetime_randomness = 1.0
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_max = 163.69
-damping_min = 94.048
-damping_max = 94.048
-color = Color(0.45882353, 0.14117648, 0.21960784, 1)
-
 [node name="animations" type="AnimatedSprite2D" parent="." unique_id=102419961]
 unique_name_in_owner = true
 position = Vector2(1, 0)
@@ -132,6 +117,21 @@ position = Vector2(-4, -1)
 shape = SubResource("CircleShape2D_yf5fn")
 
 [node name="death" type="Timer" parent="." unique_id=621534895]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=393247845]
+emitting = false
+amount = 520
+lifetime = 1.82
+one_shot = true
+explosiveness = 0.97
+randomness = 1.0
+lifetime_randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 163.69
+damping_min = 94.048
+damping_max = 94.048
+color = Color(0.45882353, 0.14117648, 0.21960784, 1)
 
 [connection signal="timeout" from="rush" to="." method="_on_rush_timeout"]
 [connection signal="area_entered" from="damage" to="." method="_on_damage_area_entered"]
