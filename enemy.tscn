@@ -99,6 +99,7 @@ wait_time = 5.0
 autostart = true
 
 [connection signal="area_entered" from="damage" to="." method="_on_damage_area_entered"]
+[connection signal="body_entered" from="damage" to="." method="_on_damage_body_entered"]
 [connection signal="body_entered" from="damage/detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="damage/detection" to="." method="_on_detection_body_exited"]
 [connection signal="timeout" from="rush" to="." method="_on_rush_timeout"]

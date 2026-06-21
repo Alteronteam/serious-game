@@ -1,5 +1,6 @@
 extends CharacterBody2D
 @onready var locate = get_node("/root/Node2D/Node2D/player")
+var player_hp = Global.hp
 var player = null
 var player_chase= false
 var velocidade = 50
@@ -26,3 +27,8 @@ func _on_damage_area_entered(area: Area2D) -> void:
 
 func _on_rush_timeout() -> void:
 	timer = !timer
+
+
+func _on_damage_body_entered(body: Node2D) -> void:
+	player_hp -= 1
+	print("alguma porra")
