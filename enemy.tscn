@@ -117,6 +117,7 @@ position = Vector2(-4, -1)
 shape = SubResource("CircleShape2D_yf5fn")
 
 [node name="death" type="Timer" parent="." unique_id=621534895]
+wait_time = 0.5
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=393247845]
 emitting = false

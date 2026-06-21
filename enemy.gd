@@ -48,6 +48,8 @@ func _on_takes_damage_area_entered(area: Area2D) -> void:
 		$CPUParticles2D.emitting = true
 		%animations.hide()
 		$CollisionPolygon2D.hide()
+		$takes_damage.hide()
+		$damage.hide()
 		
 		$death.start()
 func _on_death_timeout() -> void:
