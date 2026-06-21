@@ -8,6 +8,7 @@ var current_direction = rotation
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("mouse_left"):
+		$AnimatedSprite2D.play("hold")
 		scale.y = lerp(0.8,1.0,0.05)
 		rotation+=0.1
 		Global.speed=0.1
@@ -16,6 +17,7 @@ func _physics_process(delta: float) -> void:
 		Global.speed=1
 		position += transform.y * SPEED * delta*-1* Global.speed
 	if Input.is_action_just_released("mouse_left"):
+		$AnimatedSprite2D.play("moving")
 		scale.y = lerp(1.0,0.8,0.05*delta)
 		#play sound
 		pass
