@@ -69,5 +69,5 @@ position = Vector2(-198, -106)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1522975324]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=447616371]
-position = Vector2(-91, -30)
+position = Vector2(-120, -46)
 sprite_frames = SubResource("SpriteFrames_g4v7s")

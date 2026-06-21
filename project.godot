@@ -21,8 +21,10 @@ Global="*uid://bup5o87jndq20"
 
 [display]
 
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/size/window_width_override=1280
+window/size/window_height_override=640
 
 [input]
 

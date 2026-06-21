@@ -13,7 +13,8 @@ func _physics_process(delta: float) -> void:
 		
 	if timer ==  true:
 		velocidade = 150* Global.speed
-		look_at(locate.global_position)
+		
+		look_at(lerp(position,locate.global_position,0.05*delta))
 		%animations.play('activated')
 	else:
 		velocidade = 50*Global.speed
