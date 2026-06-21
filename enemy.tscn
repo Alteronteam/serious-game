@@ -31,6 +31,18 @@ region = Rect2(48, 0, 24, 24)
 atlas = ExtResource("2_4gyqm")
 region = Rect2(72, 0, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gyqm"]
+atlas = ExtResource("2_4gyqm")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxifv"]
+atlas = ExtResource("2_4gyqm")
+region = Rect2(192, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwjut"]
+atlas = ExtResource("2_4gyqm")
+region = Rect2(216, 0, 24, 24)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
 "frames": [{
@@ -45,7 +57,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"activated",
-"speed": 15.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -63,6 +75,20 @@ animations = [{
 "loop": 1,
 "name": &"idle",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gyqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxifv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwjut")
+}],
+"loop": 1,
+"name": &"rush",
+"speed": 15.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gngh"]
@@ -80,9 +106,9 @@ unique_name_in_owner = true
 position = Vector2(1, 0)
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"idle"
+animation = &"activated"
 autoplay = "idle"
-frame_progress = 0.53147405
+frame_progress = 0.9528916
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=622668417]
 position = Vector2(0, 1)

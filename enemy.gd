@@ -6,7 +6,6 @@ var player_chase= false
 var velocidade = 50
 var timer = false
 func _physics_process(delta: float) -> void:
-	
 	if player_chase == true :
 		
 		global_position = global_position.move_toward(locate.global_position, velocidade * delta)
@@ -15,11 +14,16 @@ func _physics_process(delta: float) -> void:
 		velocidade = 150* Global.speed
 		
 		look_at(lerp(position,locate.global_position,0.05*delta))
-		%animations.play('activated')
+		%animations.play('rush')
 	else:
 		velocidade = 50*Global.speed
 		%animations.play("idle")
+		
+		
+		
+		
 func _on_detection_body_entered(body) -> void:
+	%animations.play("activated")
 	player = body
 	player_chase= true
 
@@ -33,7 +37,8 @@ func _on_damage_area_entered(area: Area2D) -> void:
 
 
 func _on_rush_timeout() -> void:
-	timer = !timer
+	if player_chase == true :
+		timer = !timer
 
 
 func _on_damage_body_entered(body: Node2D) -> void:
@@ -53,5 +58,6 @@ func _on_takes_damage_area_entered(area: Area2D) -> void:
 		$damage.hide()
 		
 		$death.start()
+		
 func _on_death_timeout() -> void:
 	queue_free()
