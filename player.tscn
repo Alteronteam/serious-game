@@ -28,11 +28,11 @@ size = Vector2(0.42974788, 2.3985758)
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=591006138]
 unique_name_in_owner = true
+motion_mode = 1
 script = ExtResource("1_onrkg")
 
 [node name="camera" type="Camera2D" parent="player" unique_id=408178363]
 unique_name_in_owner = true
-zoom = Vector2(4, 4)
 process_callback = 0
 position_smoothing_enabled = true
 

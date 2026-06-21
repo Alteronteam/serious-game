@@ -72,6 +72,7 @@ radius = 84.14868
 radius = 5.0
 
 [node name="shield_enemy" type="CharacterBody2D" unique_id=1258576642]
+motion_mode = 1
 script = ExtResource("1_4gyqm")
 
 [node name="animations" type="AnimatedSprite2D" parent="." unique_id=102419961]
