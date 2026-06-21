@@ -42,6 +42,8 @@ process_callback = 0
 position_smoothing_enabled = true
 
 [node name="Area2D" type="Area2D" parent="player" unique_id=613354549]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="player/Area2D" unique_id=1576753229]
 position = Vector2(0, -6)
