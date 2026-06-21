@@ -21,7 +21,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 radius = 2.236068
 
-[node name="Node2D" type="Node2D" unique_id=1445493539]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(0.42974788, 2.3985758)
+
+[node name="Node2D3" type="Node2D" unique_id=1445493539]
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=591006138]
 unique_name_in_owner = true
@@ -44,3 +47,8 @@ position_smoothing_enabled = true
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_yf5fn")
 debug_color = Color(0.6110733, 0.38237348, 0.9588434, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=2002702245]
+position = Vector2(1.1920929e-07, 0.49999952)
+scale = Vector2(37.231133, -6.253711)
+shape = SubResource("RectangleShape2D_yf5fn")

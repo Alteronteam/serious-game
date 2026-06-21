@@ -94,6 +94,12 @@ animation = &"dark"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1665043040]
 shape = SubResource("CircleShape2D_d0u6y")
 
+[node name="rush" type="Timer" parent="." unique_id=415114132]
+wait_time = 5.0
+autostart = true
+
 [connection signal="area_entered" from="damage" to="." method="_on_damage_area_entered"]
+[connection signal="body_entered" from="damage" to="." method="_on_damage_body_entered"]
 [connection signal="body_entered" from="damage/detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="damage/detection" to="." method="_on_detection_body_exited"]
+[connection signal="timeout" from="rush" to="." method="_on_rush_timeout"]
