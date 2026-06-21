@@ -42,7 +42,10 @@ tile_set = SubResource("TileSet_g4v7s")
 position = Vector2(0, 27)
 
 [node name="Node2D2" parent="." unique_id=1586981318 instance=ExtResource("3_tlwt5")]
-position = Vector2(-25, 13)
+position = Vector2(118, -68)
 
 [node name="shield_enemy" parent="." unique_id=1258576642 instance=ExtResource("3_tlwt5")]
-position = Vector2(149, 102)
+position = Vector2(-91, 111)
+
+[node name="shield_enemy2" parent="." unique_id=2041822469 instance=ExtResource("3_tlwt5")]
+position = Vector2(-198, -106)
