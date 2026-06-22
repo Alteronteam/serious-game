@@ -2,6 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://dfqbxcch5k6kb" path="res://sprites/super_serious_enemy_shield-Sheet.png" id="1_10kl8"]
 [ext_resource type="Script" uid="uid://fvk33yjf2urt" path="res://enemy_b.gd" id="1_f7b44"]
+[ext_resource type="Texture2D" uid="uid://bh7mxyi27qixf" path="res://sprites/super_serious_enemy_dash_effect1.png" id="3_7lcda"]
+
+[sub_resource type="Curve" id="Curve_px8vm"]
+_data = [Vector2(0, 1), 0.0, -0.020038785, 0, 0, Vector2(0.50403225, 0.4621849), -1.775289, -1.775289, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_7lcda"]
+colors = PackedColorArray(0.8117647, 0.34117648, 0.23529412, 0.75686276, 0.64705884, 0.1882353, 0.1882353, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 15.297058
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 radius = 87.005745
@@ -97,6 +108,26 @@ animations = [{
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=202815672]
 script = ExtResource("1_f7b44")
 
+[node name="dash_effect" type="CPUParticles2D" parent="." unique_id=143429425]
+unique_name_in_owner = true
+rotation = -3.1342509
+amount = 200
+texture = ExtResource("3_7lcda")
+lifetime = 0.5
+spread = 0.0
+gravity = Vector2(0, 0)
+angle_min = -90.0
+angle_max = -90.0
+scale_amount_curve = SubResource("Curve_px8vm")
+color = Color(0.90588236, 0.8352941, 0.7019608, 1)
+color_ramp = SubResource("Gradient_7lcda")
+
+[node name="walls_no_clip_avoidance" type="Area2D" parent="." unique_id=1479327433]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls_no_clip_avoidance" unique_id=722913509]
+shape = SubResource("CircleShape2D_g4v7s")
+
 [node name="detection_zone" type="Area2D" parent="." unique_id=934018104]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_zone" unique_id=981894875]
@@ -148,9 +179,10 @@ color = Color(0.45882353, 0.14117648, 0.21960784, 1)
 unique_name_in_owner = true
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_f7b44")
-animation = &"idle"
+animation = &"rush"
 autoplay = "idle"
 
+[connection signal="body_entered" from="walls_no_clip_avoidance" to="." method="_on_walls_no_clip_avoidance_body_entered"]
 [connection signal="body_entered" from="detection_zone" to="." method="_on_detection_zone_body_entered"]
 [connection signal="body_exited" from="detection_zone" to="." method="_on_detection_zone_body_exited"]
 [connection signal="area_entered" from="damage_intake" to="." method="_on_damage_intake_area_entered"]

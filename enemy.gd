@@ -22,24 +22,16 @@ func _on_detection_body_entered(body) -> void:
 	look_at(lerp(position,locate.global_position,0.05))
 	player = body
 	player_chase= true
-
 func _on_detection_body_exited(body) -> void:
-	
 	player=null
 	player_chase=false
-	
-
 func _on_rush_timeout() -> void:
 	if player_chase == true :
 		timer = !timer
-
-
 func _on_damage_body_entered(body: Node2D) -> void:
 	player_hp -= 1
 	print(player_hp)
 	print("alguma porra")
-
-#death handler
 func _on_takes_damage_area_entered(area: Area2D) -> void:
 	print(area)
 	if "damage_dealer" in str(area):
@@ -51,6 +43,5 @@ func _on_takes_damage_area_entered(area: Area2D) -> void:
 		$damage.hide()
 		
 		$death.start()
-		
 func _on_death_timeout() -> void:
 	queue_free()
