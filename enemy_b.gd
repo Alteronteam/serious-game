@@ -39,5 +39,6 @@ func _on_damage_intake_area_entered(area: Area2D) -> void:
 	if "damage_dealer" in str(area):
 		$CPUParticles2D.emitting = true
 		queue_free()
+	
 func _on_cool_down_timeout() -> void:
 	is_on_cooldown = false

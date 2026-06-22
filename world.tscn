@@ -66,4 +66,10 @@ position = Vector2(-120, -46)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 
 [node name="CharacterBody2D" parent="." unique_id=202815672 instance=ExtResource("4_036b0")]
-position = Vector2(-13, -13)
+position = Vector2(-150, -86)
+
+[node name="CharacterBody2D2" parent="." unique_id=1046988984 instance=ExtResource("4_036b0")]
+position = Vector2(-115, 83)
+
+[node name="CharacterBody2D3" parent="." unique_id=2137319600 instance=ExtResource("4_036b0")]
+position = Vector2(127, 62)

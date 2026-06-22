@@ -104,13 +104,6 @@ position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_yf5fn")
 debug_color = Color(0.9411765, 0.23921569, 0, 0.043137256)
 
-[node name="animations" type="AnimatedSprite2D" parent="." unique_id=352195342]
-unique_name_in_owner = true
-rotation = 1.5707964
-sprite_frames = SubResource("SpriteFrames_f7b44")
-animation = &"idle"
-autoplay = "idle"
-
 [node name="actual_faceplate" type="CollisionPolygon2D" parent="." unique_id=1337045974]
 position = Vector2(-2.5863756e-12, 1)
 rotation = -0.00055730337
@@ -150,6 +143,13 @@ initial_velocity_max = 163.69
 damping_min = 94.048
 damping_max = 94.048
 color = Color(0.45882353, 0.14117648, 0.21960784, 1)
+
+[node name="animations" type="AnimatedSprite2D" parent="." unique_id=352195342]
+unique_name_in_owner = true
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_f7b44")
+animation = &"idle"
+autoplay = "idle"
 
 [connection signal="body_entered" from="detection_zone" to="." method="_on_detection_zone_body_entered"]
 [connection signal="body_exited" from="detection_zone" to="." method="_on_detection_zone_body_exited"]
