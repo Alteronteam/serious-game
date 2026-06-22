@@ -59,6 +59,11 @@ animations = [{
 "name": &"activated",
 "speed": 10.0
 }, {
+"frames": [],
+"loop": 1,
+"name": &"hidden",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3yqyl")
@@ -106,13 +111,12 @@ unique_name_in_owner = true
 position = Vector2(1, 0)
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"activated"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.9528916
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=622668417]
 position = Vector2(0, 1)
-polygon = PackedVector2Array(-2, -10, -2, -7, 2, -5, 2, 3, -3, 4, -3, 7, -1, 7, 5, 3, 5, -5, 1, -10)
+polygon = PackedVector2Array(-2, -10, -2, -7, 2, -5, 2, 3, -2, 4, -2, 7, 1, 7, 5, 3, 5, -5, 1, -10)
 
 [node name="rush" type="Timer" parent="." unique_id=415114132]
 wait_time = 5.0
@@ -123,17 +127,17 @@ position = Vector2(0, -1)
 collision_layer = 2
 collision_mask = 2
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="damage" unique_id=666985385]
+position = Vector2(1, 1)
+polygon = PackedVector2Array(1, -8, 3, -1, 1, 7, 8, 9, 5, 4, 5, 2, 9, -1, 5, -3, 5, -5, 8, -10)
+
 [node name="detection" type="Area2D" parent="damage" unique_id=961953257]
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage/detection" unique_id=2089257934]
-position = Vector2(2, 1)
+position = Vector2(3, 1)
 shape = SubResource("CircleShape2D_3gngh")
 debug_color = Color(1, 0.7019608, 0.43137255, 0.011764706)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="damage" unique_id=666985385]
-position = Vector2(1, 1)
-polygon = PackedVector2Array(1, -8, 3, -1, 1, 7, 8, 9, 5, 4, 5, 2, 9, -1, 5, -3, 5, -5, 8, -10)
 
 [node name="takes_damage" type="Area2D" parent="." unique_id=257702098]
 collision_layer = 4
@@ -151,7 +155,7 @@ emitting = false
 amount = 520
 lifetime = 1.82
 one_shot = true
-explosiveness = 0.97
+explosiveness = 1.0
 randomness = 1.0
 lifetime_randomness = 1.0
 spread = 180.0

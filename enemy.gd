@@ -17,24 +17,17 @@ func _physics_process(delta: float) -> void:
 		%animations.play('rush')
 	else:
 		velocidade = 50*Global.speed
-		%animations.play("idle")
-		
-		
-		
-		
 func _on_detection_body_entered(body) -> void:
 	%animations.play("activated")
+	look_at(lerp(position,locate.global_position,0.05))
 	player = body
 	player_chase= true
 
 func _on_detection_body_exited(body) -> void:
+	
 	player=null
 	player_chase=false
-
-
-func _on_damage_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
-
+	
 
 func _on_rush_timeout() -> void:
 	if player_chase == true :
