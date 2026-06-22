@@ -6,21 +6,30 @@ const JUMP_VELOCITY = -400.0
 var is_player_in_detection_zone = false
 var target:Vector2
 var is_on_cooldown = false
+var is_dashing = false
 
 func _physics_process(delta: float) -> void:
 	if is_player_in_detection_zone == true and is_on_cooldown == false :#attack
 		
 		look_at(player_location.global_position)
 		target = player_location.global_position
-		#attack itself
-		global_position = global_position.move_toward(target, Global.speed * delta)
-		
+		#the attack itself
+		is_dashing = true
 		#end of attack
 		is_on_cooldown= true
 		%"cool down".start()
 	
+	if is_dashing ==true :
+		%animations.play("rush")
+		global_position = global_position.move_toward(target,Global.speed *delta*250)
+	elif is_dashing == false and is_player_in_detection_zone == true:
+		%animations.play("activated")
+	elif is_dashing == false and is_player_in_detection_zone == false:
+		%animations.play("idle")
+	if global_position == target:
+		is_dashing= false
+	print(is_dashing)
 func _on_detection_zone_body_entered(body: Node2D) -> void:
-	print(body)
 	if "player" in str(body):# para saber que é o player
 		is_player_in_detection_zone= true
 func _on_detection_zone_body_exited(body: Node2D) -> void:

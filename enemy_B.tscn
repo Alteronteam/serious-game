@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://fvk33yjf2urt" path="res://enemy_b.gd" id="1_f7b44"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
-radius = 62.03225
+radius = 87.005745
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qi2p4"]
 atlas = ExtResource("1_10kl8")
@@ -134,6 +134,7 @@ polygon = PackedVector2Array(4, 8, 7, 4, 8, 3, 8, -4, 4, -9, 9, -10, 7, -6, 9, -
 
 [node name="cool down" type="Timer" parent="." unique_id=1887962103]
 unique_name_in_owner = true
+wait_time = 2.0
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=591710260]
 emitting = false
