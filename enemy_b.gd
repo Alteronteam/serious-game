@@ -8,44 +8,55 @@ var target:Vector2
 var is_on_cooldown = false
 var is_dashing = false
 var overshoot = Vector2(10,0)
+var is_alive = true
 
 func _physics_process(delta: float) -> void:
-	if is_player_in_detection_zone == true and is_on_cooldown == false :#attack
+	if is_alive:
+		if is_player_in_detection_zone == true and is_on_cooldown == false :#attack
 		
-		look_at(player_location.global_position)
-		target = player_location.global_position + overshoot
-		#the attack itself
-		is_dashing = true
-		#end of attack
-		is_on_cooldown= true
-		%"cool down".start()
+			look_at(player_location.global_position)
+			target = player_location.global_position + overshoot
+			#the attack itself
+			is_dashing = true
+			#end of attack
+			is_on_cooldown= true
+			%"cool down".start()
 		
-	%dash_effect.rotation_degrees = rotation_degrees
-	if is_dashing ==true :
-		%animations.play("rush")
-		%dash_effect.emitting = true
-		global_position = global_position.move_toward(target,Global.speed *delta*250)
-	elif is_dashing == false and is_player_in_detection_zone == true:
-		%animations.play("activated")
-		%dash_effect.emitting = false
-	elif is_dashing == false and is_player_in_detection_zone == false:
-		%animations.play("idle")
-		%dash_effect.emitting = false
-	if global_position == target:
-		is_dashing= false
+		%dash_effect.rotation_degrees = rotation_degrees
+		if is_dashing ==true :
+			%animations.play("rush")
+			%dash_effect.emitting = true
+			global_position = global_position.move_toward(target,Global.speed *delta*250)
+		elif is_dashing == false and is_player_in_detection_zone == true:
+			%animations.play("activated")
+			%dash_effect.emitting = false
+		elif is_dashing == false and is_player_in_detection_zone == false:
+			%animations.play("idle")
+			%dash_effect.emitting = false
+		if global_position == target:
+			is_dashing= false
 	
 func _on_detection_zone_body_entered(body: Node2D) -> void:
-	if "player" in str(body):
+	if "player" in str(body):#detects player
 		is_player_in_detection_zone= true
 func _on_detection_zone_body_exited(body: Node2D) -> void:
-	if "player" in str(body):
+	if "player" in str(body):#forgets player
 		is_player_in_detection_zone= false
 func _on_damage_intake_area_entered(area: Area2D) -> void:
-	if "damage_dealer" in str(area):
+	if "damage_dealer" in str(area):#gets hit by player
+		is_alive = false
 		$CPUParticles2D.emitting = true
-		queue_free()
+		$walls_no_clip_avoidance.hide()
+		%dash_effect.hide()
+		$actual_faceplate.hide()
+		$damage_dealer.hide()
+		$damage_intake.hide()
+		%animations.hide()
+		%death_delay.start()
 func _on_cool_down_timeout() -> void:
 	is_on_cooldown = false
 func _on_walls_no_clip_avoidance_body_entered(body: Node2D) -> void:#to try to make the enemy stop when hits a wall
-	if "TileMapLayer" in str(body):
+	if "TileMapLayer" in str(body):#gets hit by wall
 		is_dashing = false
+func _on_death_delay_timeout() -> void:#death
+	queue_free()
