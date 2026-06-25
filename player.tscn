@@ -41,13 +41,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 radius = 3.1622777
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(0.42974788, 2.3985758)
-
 [node name="Node2D3" type="Node2D" unique_id=1445493539]
 
-[node name="player" type="CharacterBody2D" parent="." unique_id=591006138]
+[node name="player" type="CharacterBody2D" parent="." unique_id=591006138 groups=["player"]]
 unique_name_in_owner = true
+collision_layer = 3
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_onrkg")
 
@@ -74,7 +73,7 @@ color = Color(0.8156863, 0.85490197, 0.5686275, 1)
 
 [node name="camera" type="Camera2D" parent="player" unique_id=408178363]
 unique_name_in_owner = true
-zoom = Vector2(4, 4)
+zoom = Vector2(2, 2)
 process_callback = 0
 position_smoothing_enabled = true
 
@@ -86,18 +85,15 @@ sprite_frames = SubResource("SpriteFrames_yf5fn")
 animation = &"moving"
 autoplay = "moving"
 
-[node name="damage_dealer" type="Area2D" parent="player" unique_id=613354549]
+[node name="damage_dealer" type="Area2D" parent="player" unique_id=613354549 groups=["player"]]
 unique_name_in_owner = true
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="player/damage_dealer" unique_id=1576753229]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="player/damage_dealer" unique_id=1576753229 groups=["player"]]
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_yf5fn")
 debug_color = Color(0.6110733, 0.38237348, 0.9588434, 0.41960785)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=2002702245]
-visible = false
-position = Vector2(0, 1)
-scale = Vector2(37.231133, -6.253711)
-shape = SubResource("RectangleShape2D_yf5fn")
+[connection signal="area_entered" from="player/damage_dealer" to="player" method="_on_damage_dealer_area_entered"]
+[connection signal="body_entered" from="player/damage_dealer" to="player" method="_on_damage_dealer_body_entered"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="serious game"
-run/main_scene="uid://dqqmwuxi0835a"
+run/main_scene="uid://c53mhjhabhqm1"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -25,6 +25,15 @@ window/size/viewport_width=320
 window/size/viewport_height=180
 window/size/window_width_override=1280
 window/size/window_height_override=640
+window/stretch/mode="canvas_items"
+window/stretch/scale=0.7
+
+[global_group]
+
+player=""
+enemy_damege_intake=""
+enemy_damege_dealer=""
+next_level=""
 
 [input]
 

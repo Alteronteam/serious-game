@@ -152,7 +152,7 @@ position = Vector2(-2, 0)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="damage_dealer" unique_id=1691433297]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="damage_dealer" unique_id=1981134931]
 polygon = PackedVector2Array(4, 8, 7, 4, 8, 3, 8, -4, 4, -9, 9, -10, 7, -6, 9, -4, 11, -1, 9, 3, 7, 5, 9, 9)
 
 [node name="cool down" type="Timer" parent="." unique_id=1887962103]
@@ -190,5 +190,6 @@ wait_time = 0.5
 [connection signal="body_entered" from="detection_zone" to="." method="_on_detection_zone_body_entered"]
 [connection signal="body_exited" from="detection_zone" to="." method="_on_detection_zone_body_exited"]
 [connection signal="area_entered" from="damage_intake" to="." method="_on_damage_intake_area_entered"]
+[connection signal="body_entered" from="damage_dealer" to="." method="_on_damage_dealer_body_entered"]
 [connection signal="timeout" from="cool down" to="." method="_on_cool_down_timeout"]
 [connection signal="timeout" from="death_delay" to="." method="_on_death_delay_timeout"]

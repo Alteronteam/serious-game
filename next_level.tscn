@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c5j4ukho2y1hk"]
+
+[ext_resource type="Texture2D" uid="uid://dcs8m0b1go6df" path="res://sprites/super_serious_enemy-Sheet.png" id="1_1m5ts"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn2et"]
+atlas = ExtResource("1_1m5ts")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snqbe"]
+atlas = ExtResource("1_1m5ts")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35l6a"]
+atlas = ExtResource("1_1m5ts")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn2et")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snqbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35l6a")
+}],
+"loop": 1,
+"name": &"template",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 5.0
+
+[node name="nextLevel" type="Node2D" unique_id=1823343801]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1341152676 groups=["next_level"]]
+scale = Vector2(2.1756601, 2.3028605)
+collision_layer = 4
+collision_mask = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1557487156]
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+animation = &"template"
+frame_progress = 0.86531305
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1047696888 groups=["next_level"]]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_g4v7s")

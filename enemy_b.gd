@@ -43,7 +43,7 @@ func _on_detection_zone_body_exited(body: Node2D) -> void:
 	if "player" in str(body):#forgets player
 		is_player_in_detection_zone= false
 func _on_damage_intake_area_entered(area: Area2D) -> void:
-	if "damage_dealer" in str(area):#gets hit by player
+	if area.is_in_group("player"):#gets hit by player
 		is_alive = false
 		$CPUParticles2D.emitting = true
 		$walls_no_clip_avoidance.hide()
@@ -60,3 +60,9 @@ func _on_walls_no_clip_avoidance_body_entered(body: Node2D) -> void:#to try to m
 		is_dashing = false
 func _on_death_delay_timeout() -> void:#death
 	queue_free()
+
+#parte do codigo que eu fiz qualquer coisa vc reorganiza
+func _on_damage_dealer_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		Global.hp -= 1
+		print(Global.hp)
