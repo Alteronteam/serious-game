@@ -1,8 +1,135 @@
 [gd_scene format=3 uid="uid://c53mhjhabhqm1"]
 
 [ext_resource type="Script" uid="uid://c5g5ka4wmhklg" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="Texture2D" uid="uid://bn45le264hpxe" path="res://sprites/super_serious_start_button-Sheet.png" id="2_4hy44"]
 [ext_resource type="Texture2D" uid="uid://m8nxixpaniky" path="res://sprites/super_serious_big_arrow.png" id="2_mae5d"]
 [ext_resource type="Script" uid="uid://qblyim1amm7a" path="res://super_serious_arrow.gd" id="3_mae5d"]
+[ext_resource type="Texture2D" uid="uid://dnca33xkerbb1" path="res://sprites/super_serious_screen_transition-Sheet.png" id="5_ytr4m"]
+[ext_resource type="FontFile" uid="uid://bfweyqrwy80d1" path="res://fonts/Vermin Vibes 1989.ttf" id="6_l48gv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecwwl"]
+atlas = ExtResource("5_ytr4m")
+region = Rect2(0, 0, 320, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk3ma"]
+atlas = ExtResource("5_ytr4m")
+region = Rect2(320, 0, 320, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrnbx"]
+atlas = ExtResource("5_ytr4m")
+region = Rect2(640, 0, 320, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqepy"]
+atlas = ExtResource("5_ytr4m")
+region = Rect2(960, 0, 320, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1wq0"]
+atlas = ExtResource("5_ytr4m")
+region = Rect2(1280, 0, 320, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwrpx"]
+atlas = ExtResource("5_ytr4m")
+region = Rect2(1600, 0, 320, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7jxm"]
+atlas = ExtResource("5_ytr4m")
+region = Rect2(1920, 0, 320, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jspdm"]
+atlas = ExtResource("5_ytr4m")
+region = Rect2(2240, 0, 320, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxnod"]
+atlas = ExtResource("5_ytr4m")
+region = Rect2(2560, 0, 320, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gd0jp"]
+atlas = ExtResource("5_ytr4m")
+region = Rect2(2880, 0, 320, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ndjb"]
+atlas = ExtResource("5_ytr4m")
+region = Rect2(3200, 0, 320, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ls4m"]
+atlas = ExtResource("5_ytr4m")
+region = Rect2(0, 0, 320, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57qmd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecwwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk3ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrnbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqepy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1wq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwrpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7jxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jspdm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxnod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gd0jp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ndjb")
+}],
+"loop": 0,
+"name": &"active",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ls4m")
+}],
+"loop": 1,
+"name": &"black",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytr4m"]
+atlas = ExtResource("2_4hy44")
+region = Rect2(192, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l48gv"]
+atlas = ExtResource("2_4hy44")
+region = Rect2(96, 0, 96, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytr4m")
+}],
+"loop": 1,
+"name": &"gray",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l48gv")
+}],
+"loop": 1,
+"name": &"green",
+"speed": 5.0
+}]
 
 [sub_resource type="Curve" id="Curve_mae5d"]
 _data = [Vector2(0.007462688, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -11,6 +138,10 @@ point_count = 2
 [sub_resource type="Curve" id="Curve_4hy44"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = ExtResource("6_l48gv")
+font_size = 32
 
 [node name="Control" type="Control" unique_id=396556891]
 layout_mode = 3
@@ -41,17 +172,39 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "Menu"
 
+[node name="Control" type="Control" parent="ColorRect" unique_id=1885298957]
+layout_mode = 1
+anchor_top = -0.062000003
+anchor_right = 1.0
+anchor_bottom = 1.062
+offset_top = 11.160001
+offset_bottom = 11.319992
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect/Control" unique_id=1758603358]
+position = Vector2(225.5, 136.00002)
+scale = Vector2(1.4093751, 1.6999998)
+sprite_frames = SubResource("SpriteFrames_57qmd")
+animation = &"active"
+autoplay = "black"
+
 [node name="Button" type="Button" parent="." unique_id=218549374]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 20.0
-offset_top = -14.0
-offset_right = 65.0
-offset_bottom = 17.0
+offset_left = 11.0
+offset_top = -25.0
+offset_right = 114.0
+offset_bottom = 31.0
 grow_vertical = 2
-text = "start"
+flat = true
+
+[node name="button_sprite" type="AnimatedSprite2D" parent="Button" unique_id=424916539]
+unique_name_in_owner = true
+position = Vector2(52, 27)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"green"
+autoplay = "green"
 
 [node name="Container" type="Container" parent="." unique_id=1345604161]
 layout_mode = 1
@@ -90,4 +243,21 @@ initial_velocity_max = 50.0
 scale_amount_curve = SubResource("Curve_4hy44")
 color = Color(0.8156863, 0.85490197, 0.5686275, 1)
 
+[node name="Timer" type="Timer" parent="." unique_id=83025586]
+wait_time = 0.12
+
+[node name="Label" type="Label" parent="." unique_id=16232755]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 17.0
+offset_right = 242.0
+offset_bottom = 45.0
+text = "nome muito bom
+"
+label_settings = SubResource("LabelSettings_g4v7s")
+
+[connection signal="animation_finished" from="ColorRect/Control/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

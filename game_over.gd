@@ -1,5 +1,9 @@
 extends Control
 
+func _ready() -> void:
+	$AnimatedSprite2D.play("default")
+
+
 
 
 func _on_button_pressed() -> void:
