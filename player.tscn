@@ -436,5 +436,17 @@ sprite_frames = SubResource("SpriteFrames_2hs0m")
 animation = &"4.0"
 speed_scale = 2.3
 
+[node name="ambient_damage" type="Area2D" parent="player" unique_id=2085937730]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player/ambient_damage" unique_id=1342612367]
+polygon = PackedVector2Array(8, 8, 4, 8, 0, 4, -4, 8, -8, 8, -8, 6, -1, -7, 1, -7, 8, 6)
+
+[node name="damage_buffer" type="Timer" parent="player" unique_id=1036657042]
+
 [connection signal="area_entered" from="player/damage_dealer" to="player" method="_on_damage_dealer_area_entered"]
 [connection signal="body_entered" from="player/damage_dealer" to="player" method="_on_damage_dealer_body_entered"]
+[connection signal="body_entered" from="player/ambient_damage" to="player" method="_on_ambient_damage_body_entered"]
+[connection signal="body_exited" from="player/ambient_damage" to="player" method="_on_ambient_damage_body_exited"]
+[connection signal="timeout" from="player/damage_buffer" to="player" method="_on_damage_buffer_timeout"]

@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var current_direction = rotation
-
+var is_on_buffer = false
 
 func _physics_process(delta: float) -> void:
 	
@@ -50,3 +50,14 @@ func Next():
 			#get_tree().change_scene_to_file("res://world_4.tscn")
 		#4:
 			#get_tree().change_scene_to_file("res://world_5.tscn")
+
+
+func _on_ambient_damage_body_entered(body: Node2D) -> void:
+	if "TileMapLayer" in str(body) and is_on_buffer == false :
+		Global.hp -=0.5
+		is_on_buffer = true
+		$damage_buffer.start()
+		print("is on buffer")
+func _on_damage_buffer_timeout() -> void:
+	print('is not on buffer')
+	is_on_buffer = false
