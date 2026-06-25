@@ -12,7 +12,7 @@ point_count = 3
 colors = PackedColorArray(0.8117647, 0.34117648, 0.23529412, 0.75686276, 0.64705884, 0.1882353, 0.1882353, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-radius = 15.297058
+radius = 23.021729
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 radius = 87.005745

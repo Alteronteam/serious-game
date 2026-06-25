@@ -46,4 +46,4 @@ position = Vector2(347, -660.99994)
 rotation = -0.023096384
 
 [node name="CharacterBody2D" parent="." unique_id=202815672 instance=ExtResource("4_036b0")]
-position = Vector2(133, -656)
+position = Vector2(1, -719)
