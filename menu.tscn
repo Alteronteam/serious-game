@@ -201,7 +201,7 @@ flat = true
 
 [node name="button_sprite" type="AnimatedSprite2D" parent="Button" unique_id=424916539]
 unique_name_in_owner = true
-position = Vector2(52, 27)
+position = Vector2(61, 48)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"green"
 autoplay = "green"
@@ -217,6 +217,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SuperSeriousArrow" type="Sprite2D" parent="Container" unique_id=2133487045]
+position = Vector2(79, 23)
 texture = ExtResource("2_mae5d")
 script = ExtResource("3_mae5d")
 
@@ -248,11 +249,12 @@ wait_time = 0.12
 
 [node name="Label" type="Label" parent="." unique_id=16232755]
 layout_mode = 0
-offset_left = 72.0
-offset_top = 17.0
-offset_right = 242.0
-offset_bottom = 45.0
-text = "nome muito bom
+offset_left = 24.0
+offset_top = 13.0
+offset_right = 288.0
+offset_bottom = 103.0
+text = "a game about an
+ arrow that spins
 "
 label_settings = SubResource("LabelSettings_g4v7s")
 

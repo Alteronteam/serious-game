@@ -53,6 +53,8 @@ func _on_damage_intake_area_entered(area: Area2D) -> void:
 		$damage_intake.hide()
 		%animations.hide()
 		%death_delay.start()
+		if Global.hp < 4:
+			Global.hp+= 0.5
 func _on_cool_down_timeout() -> void:
 	is_on_cooldown = false
 func _on_walls_no_clip_avoidance_body_entered(body: Node2D) -> void:#to try to make the enemy stop when hits a wall
@@ -63,6 +65,6 @@ func _on_death_delay_timeout() -> void:#death
 
 #parte do codigo que eu fiz qualquer coisa vc reorganiza
 func _on_damage_dealer_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and is_alive == true :
 		Global.hp -= 1
 		print(Global.hp)

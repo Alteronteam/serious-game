@@ -40,7 +40,7 @@ func _on_damage_dealer_body_entered(body: Node2D) -> void:
 
 func Next():
 	Global.levels += 1
-	Global.hp = 3
+	Global.hp = 4.0
 	match Global.levels:
 		1:
 			get_tree().change_scene_to_file("res://world_2.tscn")
