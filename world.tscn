@@ -376,10 +376,10 @@ script = ExtResource("3_dwbse")
 
 [node name="healthbar" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=447616371]
 unique_name_in_owner = true
-position = Vector2(48, 17)
+position = Vector2(32, 17)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_yf5fn")
-animation = &"0.0"
+animation = &"4.0"
 speed_scale = 2.3
 
 [node name="CharacterBody2D" parent="." unique_id=202815672 instance=ExtResource("4_036b0")]
