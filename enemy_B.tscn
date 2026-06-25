@@ -157,7 +157,7 @@ polygon = PackedVector2Array(4, 8, 7, 4, 8, 3, 8, -4, 4, -9, 9, -10, 7, -6, 9, -
 
 [node name="cool down" type="Timer" parent="." unique_id=1887962103]
 unique_name_in_owner = true
-wait_time = 2.0
+wait_time = 4.0
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=591710260]
 rotation = 0.23999934

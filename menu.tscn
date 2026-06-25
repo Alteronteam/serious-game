@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://c53mhjhabhqm1"]
 
 [ext_resource type="Script" uid="uid://c5g5ka4wmhklg" path="res://menu.gd" id="1_lti8b"]
-[ext_resource type="Texture2D" uid="uid://c1jt75odb3vq4" path="res://sprites/super_serious_arrow.png" id="2_ouk20"]
+[ext_resource type="Texture2D" uid="uid://m8nxixpaniky" path="res://sprites/super_serious_big_arrow.png" id="2_mae5d"]
+[ext_resource type="Script" uid="uid://qblyim1amm7a" path="res://super_serious_arrow.gd" id="3_mae5d"]
 
 [sub_resource type="Curve" id="Curve_mae5d"]
 _data = [Vector2(0.007462688, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -63,11 +64,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SuperSeriousArrow" type="Sprite2D" parent="Container" unique_id=2133487045]
-rotation = -0.64663124
-scale = Vector2(4.27946, 4.337361)
-texture = ExtResource("2_ouk20")
+texture = ExtResource("2_mae5d")
+script = ExtResource("3_mae5d")
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="Container/SuperSeriousArrow" unique_id=571186714]
+visible = false
 position = Vector2(-5.9999995, 6.999998)
 rotation = 1.6738987
 amount = 32
@@ -78,6 +79,7 @@ scale_amount_curve = SubResource("Curve_mae5d")
 color = Color(0.8156863, 0.85490197, 0.5686275, 1)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Container/SuperSeriousArrow" unique_id=1947106641]
+visible = false
 position = Vector2(6, 7)
 rotation = 1.6055154
 amount = 32

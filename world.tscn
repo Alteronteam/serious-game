@@ -58,11 +58,9 @@ tile_set = SubResource("TileSet_g4v7s")
 [node name="Node2D" parent="." unique_id=1445493539 instance=ExtResource("2_fj7yv")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1522975324]
-visible = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=447616371]
-visible = false
-position = Vector2(-120, -46)
+position = Vector2(-56, -37)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 
 [node name="CharacterBody2D" parent="." unique_id=202815672 instance=ExtResource("4_036b0")]
