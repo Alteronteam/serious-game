@@ -44,8 +44,8 @@ func Next():
 	match Global.levels:
 		1:
 			get_tree().change_scene_to_file("res://world_2.tscn")
-		#2:
-			#get_tree().change_scene_to_file("res://world_3.tscn")
+		2:
+			get_tree().change_scene_to_file("res://world_3.tscn")
 		#3:
 			#get_tree().change_scene_to_file("res://world_4.tscn")
 		#4:
