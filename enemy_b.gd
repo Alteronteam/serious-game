@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var player_location = get_node("/root/Node2D/Node2D/player")
-const SPEED = 300.0
+const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 var is_player_in_detection_zone = false
 var target:Vector2
