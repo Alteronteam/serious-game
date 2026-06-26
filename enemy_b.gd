@@ -68,11 +68,11 @@ func _on_death_delay_timeout() -> void:#death
 
 #parte do codigo que eu fiz qualquer coisa vc reorganiza
 func _on_damage_dealer_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and is_alive == true :
+	if body.is_in_group("player") and is_alive == true and Global.is_on_buffer == false:
 		%damage.play()
 		Global.hp -= 1
 		print(Global.hp)
-		
+		Global.is_on_buffer = true
 
 
 func _on_walls_no_clip_avoidance_body_exited(body: Node2D) -> void:

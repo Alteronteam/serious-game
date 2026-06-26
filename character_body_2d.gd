@@ -4,11 +4,17 @@ extends CharacterBody2D
 const SPEED = 250.0
 const JUMP_VELOCITY = -400.0
 var current_direction = rotation
-var is_on_buffer = false
-
+var buffer_started = false
 func _physics_process(delta: float) -> void:
+	if Global.is_on_buffer == true and buffer_started == false:
+		$damage_buffer.start()
+		buffer_started = true
+	print(Global.is_on_buffer)
+	$buffer_sprite.play(str(Global.is_on_buffer))
+	
 	
 	if Input.is_action_pressed("mouse_left"):
+		Global.slowmo = true
 		$AnimatedSprite2D.play("hold")
 		scale.y = lerp(0.8,1.0,0.05)
 		rotation+=0.1
@@ -24,6 +30,7 @@ func _physics_process(delta: float) -> void:
 		%click_sfx.play()
 	
 	if Input.is_action_just_released("mouse_left"):
+		Global.slowmo = false
 		%release_sfx.play()
 		$AnimatedSprite2D.play("moving")
 		scale.y = lerp(1.0,0.8,0.05*delta)
@@ -61,11 +68,9 @@ func Next():
 		#4:
 			#get_tree().change_scene_to_file("res://world_5.tscn")
 func _on_ambient_damage_body_entered(body: Node2D) -> void:
-	if "TileMapLayer" in str(body) and is_on_buffer == false :
+	if "TileMapLayer" in str(body) and Global.is_on_buffer == false :
 		Global.hp -=0.5
-		is_on_buffer = true
-		$damage_buffer.start()
-		print("is on buffer")
+		Global.is_on_buffer = true
 func _on_damage_buffer_timeout() -> void:
-	print('is not on buffer')
-	is_on_buffer = false
+	Global.is_on_buffer = false
+	buffer_started = false

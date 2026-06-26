@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bn45le264hpxe" path="res://sprites/super_serious_start_button-Sheet.png" id="2_4hy44"]
 [ext_resource type="Texture2D" uid="uid://m8nxixpaniky" path="res://sprites/super_serious_big_arrow.png" id="2_mae5d"]
 [ext_resource type="Script" uid="uid://qblyim1amm7a" path="res://super_serious_arrow.gd" id="3_mae5d"]
+[ext_resource type="Script" uid="uid://n82mhc5ql8jv" path="res://button_sprite.gd" id="4_ecwwl"]
 [ext_resource type="Texture2D" uid="uid://dnca33xkerbb1" path="res://sprites/super_serious_screen_transition-Sheet.png" id="5_ytr4m"]
 [ext_resource type="FontFile" uid="uid://bfweyqrwy80d1" path="res://fonts/Vermin Vibes 1989.ttf" id="6_l48gv"]
 
@@ -205,6 +206,7 @@ position = Vector2(61, 48)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"green"
 autoplay = "green"
+script = ExtResource("4_ecwwl")
 
 [node name="Container" type="Container" parent="." unique_id=1345604161]
 layout_mode = 1

@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cngxgq6wfs208" path="res://sfx/finntastico-impact-152508.mp3" id="6_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://dnca33xkerbb1" path="res://sprites/super_serious_screen_transition-Sheet.png" id="8_b26j0"]
 [ext_resource type="Texture2D" uid="uid://g0ttyvpsk56q" path="res://sprites/blank_320x160.png" id="9_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://b8b7c1xo8of1l" path="res://sprites/super_serious_player_flash_damage.png" id="10_n7ghd"]
 
 [sub_resource type="Curve" id="Curve_i3pqv"]
 _data = [Vector2(0.007462688, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -475,6 +476,54 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7ghd"]
+atlas = ExtResource("9_n7ghd")
+region = Rect2(0, 0, 80, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lmhl"]
+atlas = ExtResource("10_n7ghd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dx0e4"]
+atlas = ExtResource("10_n7ghd")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm5j8"]
+atlas = ExtResource("10_n7ghd")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hik5"]
+atlas = ExtResource("10_n7ghd")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57qmd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ghd")
+}],
+"loop": 1,
+"name": &"false",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lmhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dx0e4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm5j8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hik5")
+}],
+"loop": 1,
+"name": &"true",
+"speed": 12.0
+}]
+
 [node name="Node2D3" type="Node2D" unique_id=1445493539]
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=591006138 groups=["player"]]
@@ -567,6 +616,10 @@ volume_db = -15.826
 [node name="damage_sfx" type="AudioStreamPlayer" parent="player" unique_id=56722729]
 unique_name_in_owner = true
 stream = ExtResource("6_2hs0m")
+
+[node name="buffer_sprite" type="AnimatedSprite2D" parent="player" unique_id=534463867]
+sprite_frames = SubResource("SpriteFrames_57qmd")
+animation = &"false"
 
 [connection signal="area_entered" from="player/damage_dealer" to="player" method="_on_damage_dealer_area_entered"]
 [connection signal="body_entered" from="player/damage_dealer" to="player" method="_on_damage_dealer_body_entered"]
