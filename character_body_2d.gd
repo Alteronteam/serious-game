@@ -19,7 +19,12 @@ func _physics_process(delta: float) -> void:
 	else: 
 		Global.speed=1
 		position += transform.y * SPEED * delta*-1 * Global.speed
+		
+	if Input.is_action_just_pressed("mouse_left"):
+		%click_sfx.play()
+	
 	if Input.is_action_just_released("mouse_left"):
+		%release_sfx.play()
 		$AnimatedSprite2D.play("moving")
 		scale.y = lerp(1.0,0.8,0.05*delta)
 		#play sound
@@ -39,6 +44,8 @@ func _on_damage_dealer_area_entered(area: Area2D) -> void:
 func _on_damage_dealer_body_entered(body: Node2D) -> void:
 	print("colidiu com: ", body.name, " | grupos: ", body.get_groups())
 	if body.is_in_group("next_level"):
+		
+		$CanvasLayer/screen_transition.play("default")
 		Next()
 
 func Next():
@@ -53,8 +60,6 @@ func Next():
 			#get_tree().change_scene_to_file("res://world_4.tscn")
 		#4:
 			#get_tree().change_scene_to_file("res://world_5.tscn")
-
-
 func _on_ambient_damage_body_entered(body: Node2D) -> void:
 	if "TileMapLayer" in str(body) and is_on_buffer == false :
 		Global.hp -=0.5
