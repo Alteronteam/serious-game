@@ -61,4 +61,4 @@ shape = SubResource("CircleShape2D_g4v7s")
 scale = Vector2(0.73835754, 0.74426144)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 autoplay = "default"
-frame_progress = 0.45002854
+frame_progress = 0.38653734

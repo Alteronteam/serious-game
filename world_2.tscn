@@ -88,7 +88,6 @@ position = Vector2(63, -678)
 [node name="nextLevel" parent="." unique_id=1823343801 instance=ExtResource("5_eiokd")]
 position = Vector2(11, -583)
 rotation = -0.023096384
-scale = Vector2(1.0722758, 0.9211117)
 
 [node name="slowmo_color_effect" type="CanvasModulate" parent="." unique_id=702707844]
 unique_name_in_owner = true

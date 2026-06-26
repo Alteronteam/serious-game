@@ -7,6 +7,7 @@ var current_direction = rotation
 var buffer_started = false
 func _physics_process(delta: float) -> void:
 	if Global.is_on_buffer == true and buffer_started == false:
+		%damage_sfx.play()
 		$damage_buffer.start()
 		buffer_started = true
 	print(Global.is_on_buffer)
@@ -63,8 +64,8 @@ func Next():
 			get_tree().change_scene_to_file("res://world_2.tscn")
 		2:
 			get_tree().change_scene_to_file("res://world_3.tscn")
-		#3:
-			#get_tree().change_scene_to_file("res://world_4.tscn")
+		3:
+			get_tree().change_scene_to_file("res://world_4.tscn")
 		#4:
 			#get_tree().change_scene_to_file("res://world_5.tscn")
 func _on_ambient_damage_body_entered(body: Node2D) -> void:
