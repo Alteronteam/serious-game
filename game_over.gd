@@ -13,6 +13,13 @@ func _on_button_pressed() -> void:
 
 
 func _on_play_again_pressed() -> void:
-	get_tree().change_scene_to_file("res://world.tscn")
 	Global.hp = 4.0
-	Global.levels = 0
+	Next()
+func  Next():
+	match Global.levels:
+		0:
+			get_tree().change_scene_to_file("res://world.tscn")
+		1:
+			get_tree().change_scene_to_file("res://world_2.tscn")
+		2:
+			get_tree().change_scene_to_file("res://world_3.tscn")
