@@ -5,14 +5,14 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 var is_player_in_detection_zone = false
 var target:Vector2
-var is_on_cooldown = false
-var is_dashing = false
+var is_on_cooldown := false
+var is_dashing := false
 var overshoot = Vector2(10,0)
-var is_alive = true
-
+var is_alive := true
+var is_close_to_a_wall := false
 func _physics_process(delta: float) -> void:
 	if is_alive:
-		if is_player_in_detection_zone == true and is_on_cooldown == false :#attack
+		if is_close_to_a_wall == false and is_player_in_detection_zone == true and is_on_cooldown == false :#attack
 		
 			look_at(player_location.global_position)
 			target = player_location.global_position + overshoot
@@ -60,6 +60,8 @@ func _on_cool_down_timeout() -> void:
 func _on_walls_no_clip_avoidance_body_entered(body: Node2D) -> void:#to try to make the enemy stop when hits a wall
 	if "TileMapLayer" in str(body):#gets hit by wall
 		is_dashing = false
+		is_close_to_a_wall = true
+	
 func _on_death_delay_timeout() -> void:#death
 	queue_free()
 
@@ -68,3 +70,8 @@ func _on_damage_dealer_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and is_alive == true :
 		Global.hp -= 1
 		print(Global.hp)
+
+
+func _on_walls_no_clip_avoidance_body_exited(body: Node2D) -> void:
+	if "TileMapLayer" in str(body):#escapes wall
+		is_close_to_a_wall = false

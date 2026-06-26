@@ -13,15 +13,17 @@ func _physics_process(delta: float) -> void:
 		scale.y = lerp(0.8,1.0,0.05)
 		rotation+=0.1
 		Global.speed=0.1
-		velocity = Vector2.ZERO
+		velocity = Vector2.ZERO 
+		
+		
 	else: 
 		Global.speed=1
-		velocity += transform.y * SPEED * delta*-1* Global.speed
+		position += transform.y * SPEED * delta*-1 * Global.speed
 	if Input.is_action_just_released("mouse_left"):
 		$AnimatedSprite2D.play("moving")
 		scale.y = lerp(1.0,0.8,0.05*delta)
 		#play sound
-		pass
+		
 	
 	move_and_slide()
 

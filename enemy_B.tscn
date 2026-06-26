@@ -188,6 +188,7 @@ position = Vector2(-1, 0)
 polygon = PackedVector2Array(6, 6, 8, 3, 8, -4, 6, -8, 9, -9, 8, -6, 9, -2, 12, -1, 12, 0, 9, 1, 8, 5, 9, 8)
 
 [connection signal="body_entered" from="walls_no_clip_avoidance" to="." method="_on_walls_no_clip_avoidance_body_entered"]
+[connection signal="body_exited" from="walls_no_clip_avoidance" to="." method="_on_walls_no_clip_avoidance_body_exited"]
 [connection signal="body_entered" from="detection_zone" to="." method="_on_detection_zone_body_entered"]
 [connection signal="body_exited" from="detection_zone" to="." method="_on_detection_zone_body_exited"]
 [connection signal="area_entered" from="damage_intake" to="." method="_on_damage_intake_area_entered"]
