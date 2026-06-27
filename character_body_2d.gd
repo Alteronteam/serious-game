@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 		
 	else: 
 		Global.speed=1
-		position += transform.y * SPEED * delta*-1 * Global.speed
+		velocity += transform.y * SPEED * delta*-1 * Global.speed
 		
 	if Input.is_action_just_pressed("mouse_left"):
 		%click_sfx.play()
